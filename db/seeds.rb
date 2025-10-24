@@ -1,0 +1,1 @@
+User.create(email: 'user@mail.io', password: 'password', nickname: 'default_user')
