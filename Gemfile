@@ -6,6 +6,8 @@ gem 'blueprinter' # JSON serialization for Rails [https://github.com/blueprinter
 
 gem 'bootsnap', require: false # Reduces boot times through caching; required in config/boot.rb [https://github.com/Shopify/bootsnap]
 
+gem 'cancancan' # Authorization for Rails [https://github.com/CanCanCommunity/cancancan]
+
 gem 'devise' # Authentication for Rails [https://github.com/heartcombo/devise]
 
 gem 'devise-jwt' # Devise for JWT authentication [https://github.com/waiting-for-dev/devise-jwt]
@@ -39,5 +41,6 @@ group :test do
   gem 'factory_bot_rails' # Create factory objects for testing [https://github.com/thoughtbot/factory_bot_rails]
   gem 'faker' # Generate random data [https://github.com/faker-ruby/faker]
   gem 'rspec-rails' # Test framework [https://rspec.info/]
+  gem 'action-cable-testing' # Channel testing helpers and matchers for RSpec [https://github.com/palkan/action-cable-testing]
   gem 'simplecov', require: false # Code coverage [https://github.com/simplecov-ruby/simplecov]
 end

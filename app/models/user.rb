@@ -29,4 +29,11 @@ class User < ApplicationRecord
   validates :nickname, presence: true, uniqueness: true
   validates :email, presence: true, uniqueness: true
   validates :password, presence: true, length: { minimum: 6 }
+
+  has_one :hosted_lobby, class_name: 'Lobby', foreign_key: :host_id, dependent: :nullify, inverse_of: :host
+  has_one :guest_lobby, class_name: 'Lobby', foreign_key: :guest_id, dependent: :nullify, inverse_of: :guest
+
+  def lobby
+    hosted_lobby || guest_lobby
+  end
 end
