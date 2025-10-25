@@ -13,6 +13,7 @@ AllCops:
     - 'spec/fixtures/**/*'
     - 'tmp/**/*'
     - 'db/**/*'
+    - 'config/**/*'
 
 Bundler/OrderedGems:
   Enabled: true

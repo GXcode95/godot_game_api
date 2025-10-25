@@ -317,7 +317,8 @@ Devise.setup do |config|
   # ==> Configuration for :jwt_authenticatable
   # Configure devise-jwt with secret and the requests that dispatch/revoke tokens
   config.jwt do |jwt|
-    jwt.secret = ENV.fetch('DEVISE_JWT_SECRET_KEY', Rails.application.credentials.dig(:devise, :jwt_secret_key) || Rails.application.secret_key_base)
+    jwt.secret = ENV.fetch('DEVISE_JWT_SECRET_KEY',
+                           Rails.application.credentials.dig(:devise, :jwt_secret_key) || Rails.application.secret_key_base)
     jwt.expiration_time = 1.day.to_i
 
     # These paths must match your routes (see routes.rb)
@@ -328,7 +329,7 @@ Devise.setup do |config|
 
     # If you later implement sign out with revocation, add the path here
     jwt.revocation_requests = [
-      ['DELETE', %r{^/api/v1/auth/sign_out$}]    # sessions#destroy (optional when using Null strategy)
+      ['DELETE', %r{^/api/v1/auth/sign_out$}] # sessions#destroy (optional when using Null strategy)
     ]
   end
 end

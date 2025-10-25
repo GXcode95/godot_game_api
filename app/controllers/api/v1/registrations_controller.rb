@@ -1,13 +1,13 @@
+# frozen_string_literal: true
+
 module Api
   module V1
     class RegistrationsController < Devise::RegistrationsController
       respond_to :json
 
-      before_action :ensure_user_params_for_signup, only: [:create]
-      # Utilise le helper d'auth pour le scope namespacé
+      before_action :ensure_user_params_for_signup, only: [:create] # rubocop:disable Rails/LexicallyScopedActionFilter
       before_action :authenticate_api_v1_user!, only: [:destroy]
 
-      # Suppression de compte sans dépendance à la session
       def destroy
         user = current_api_v1_user
         return head :unauthorized unless user
@@ -23,6 +23,7 @@ module Api
 
       def ensure_user_params_for_signup
         return if params[:user].present?
+
         params[:user] = params.permit(:email, :password, :nickname)
       end
 
@@ -38,17 +39,9 @@ module Api
         end
       end
 
-      def respond_to_on_destroy
-        head :no_content
-      end
-
-      # Évite l'écriture en session lors du sign up (API-only)
       def sign_up(resource_name, resource)
         sign_in(resource_name, resource, store: false)
       end
-
     end
   end
 end
-
-
