@@ -7,6 +7,7 @@ require_relative '../config/environment'
 abort('The Rails environment is running in production mode!') if Rails.env.production?
 require 'rspec/rails'
 # Add additional requires below this line. Rails is not loaded until this point!
+require 'action_cable/testing/rspec'
 
 # Rails.root.glob('spec/support/**/*.rb').sort_by(&:to_s).each { |f| require f }
 Rails.root.glob('spec/helpers/**/*.rb').each { |f| require f }

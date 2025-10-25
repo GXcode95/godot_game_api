@@ -17,13 +17,16 @@ Rails.application.routes.draw do
                    sessions: 'api/v1/sessions'
                  }
 
-      # Alias pratiques
       devise_scope :user do
-        post   'auth',          to: 'registrations#create'      # sign up
-        post   'auth/sign_in',  to: 'sessions#create'           # sign in
-        delete 'auth/sign_out', to: 'sessions#destroy'          # sign out
-        delete 'auth',          to: 'registrations#destroy'     # delete account
+        post   'auth',          to: 'registrations#create'
+        post   'auth/sign_in',  to: 'sessions#create'
+        delete 'auth/sign_out', to: 'sessions#destroy'
+        delete 'auth',          to: 'registrations#destroy'
       end
+
+      resources :lobbies, only: [:index, :show, :create, :update, :destroy]
     end
   end
+
+  mount ActionCable.server => '/cable'
 end

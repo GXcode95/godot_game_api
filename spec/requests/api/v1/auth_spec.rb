@@ -29,7 +29,7 @@ RSpec.describe 'Auth API', type: :request do
     }
   end
 
-  describe "[Signup] #{ROUTES[:signup][:method]} #{ROUTES[:signup][:path]}" do
+  describe "[Signup] #{ROUTES[:signup][:method].upcase} #{ROUTES[:signup][:path]}" do
     it 'creates an account and returns 201' do
       params = { email: EMAIL, password: PASSWORD, nickname: NICKNAME }.to_json
 
@@ -60,7 +60,7 @@ RSpec.describe 'Auth API', type: :request do
     end
   end
 
-  describe "[Login] #{ROUTES[:sign_in][:method]} #{ROUTES[:sign_in][:path]}" do
+  describe "[Login] #{ROUTES[:sign_in][:method].upcase} #{ROUTES[:sign_in][:path]}" do
     let!(:user) { create(:user, email: EMAIL, password: PASSWORD, password_confirmation: PASSWORD) }
 
     it 'returns 200 and a JWT in Authorization' do
@@ -80,7 +80,7 @@ RSpec.describe 'Auth API', type: :request do
     end
   end
 
-  describe "[Delete Account] #{ROUTES[:delete][:method]} #{ROUTES[:delete][:path]}" do
+  describe "[Delete Account] #{ROUTES[:delete][:method].upcase} #{ROUTES[:delete][:path]}" do
     let!(:user) { create(:user, email: EMAIL, password: PASSWORD, password_confirmation: PASSWORD) }
 
     it 'deletes the account and returns 204' do
