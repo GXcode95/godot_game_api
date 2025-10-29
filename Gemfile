@@ -12,7 +12,7 @@ gem 'devise' # Authentication for Rails [https://github.com/heartcombo/devise]
 
 gem 'devise-jwt' # Devise for JWT authentication [https://github.com/waiting-for-dev/devise-jwt]
 
-gem 'rails', '~> 7.2.2', '>= 7.2.2.2' # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
+gem 'rails', '~> 7.2.3' # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 
 gem 'pg', '~> 1.1' # Use postgresql as the database for Active Record [https://github.com/ged/ruby-pg]
 
